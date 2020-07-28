@@ -10,6 +10,8 @@ import { TransactionsTableComponent } from './components/transactions-table/tran
 import { SettingsComponent } from './pages/settings/settings.component';
 import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
 import { PendingTransactionsComponent } from './pages/pending-transactions/pending-transactions.component';
+import { BlockchainService } from './services/blockchain.service';
+import { WalletBalanceComponent } from './pages/wallet-balance/wallet-balance.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,15 @@ import { PendingTransactionsComponent } from './pages/pending-transactions/pendi
     TransactionsTableComponent,
     SettingsComponent,
     CreateTransactionComponent,
-    PendingTransactionsComponent
+    PendingTransactionsComponent,
+    WalletBalanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [BlockchainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

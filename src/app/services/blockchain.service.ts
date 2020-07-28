@@ -34,6 +34,10 @@ export class BlockchainService {
         );
     }
 
+    addressIsFromCurrentUser(address) {
+        return address === this.walletKeys[0].publicKey;
+    }
+
     private generateWalletKeys() {
         const ec = new EC.ec("secp256k1");
         const key = ec.genKeyPair();

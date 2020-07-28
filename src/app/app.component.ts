@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BlockchainService } from './services/blockchain.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'spykecoin-crypto-js-and-angular';
+     title = 'spykecoin-crypto-js-and-angular';
+
+    public blockchain;
+    public showInfoMessage = true;
+
+    constructor(private blockchainService: BlockchainService) {
+        this.blockchain = blockchainService.blockchainInstance;
+    }
+
+    thereArePendingTransactions() {
+        return this.blockchain.pendingTransactions.length > 0;
+    }
 }
